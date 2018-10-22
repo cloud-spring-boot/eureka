@@ -1,7 +1,8 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER Maksym Stepanenko <stepanenkomaksi@gmail.com>
-RUN  apk update && apk upgrade && apk add netcat-openbsd && apk add bash
+RUN  apk update && apk upgrade && apk add netcat-openbsd && apk add bash && apk add tcpdump
 RUN mkdir -p /usr/local/eureka
+RUN mkdir -p /usr/local/eureka/pcap
 ADD @project.build.finalName@.jar /usr/local/eureka/
 ADD run.sh run.sh
 RUN chmod +x run.sh
